@@ -8,7 +8,11 @@ fn main() {
                 winapi::um::winnt::LANG_ENGLISH,
                 winapi::um::winnt::SUBLANG_ENGLISH_US,
             ))
-            .set_manifest_file("../../res/manifest.xml");
+            .set_manifest_file("../../res/manifest.xml")
+            .set("FileDescription", "ShareDesk")
+            .set("ProductName", "ShareDesk")
+            .set("OriginalFilename", "ShareDesk.exe")
+            .set("LegalCopyright", "Personal ShareDesk build");
         match res.compile() {
             Err(e) => {
                 write!(std::io::stderr(), "{}", e).unwrap();
